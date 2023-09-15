@@ -1,0 +1,21 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: 12345
+      TZ: Asia/Bangkok
+    ports:
+      - 5433:5432
+
+  adminpanel:
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: youmail
+      PGADMIN_DEFAULT_PASSWORD: 12345
+    ports:
+      - 8080:80
